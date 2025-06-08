@@ -10,7 +10,6 @@ import TaskList from './pages/TaskList';
 import TeamView from './pages/TeamView';
 import Reports from './pages/Visualizations';
 import Dashboard from './pages/dashboard';
-//import Management from './pages/projectmanagement';
 import TaskDetails from './pages/Taskdetails';
 import LogoutButton from './components/Logout';
 
@@ -47,10 +46,6 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />
   },
-  // {
-  //   path: "/management",
-  //   element: <Management />
-  // },
   {
     path: "/taskdetails/:id",
     element: <TaskDetails />

@@ -18,7 +18,7 @@ const App = () => {
     setErrorMessage("")
 
     try {
-      const response = await axios.post("http://localhost:3000/user/login", {
+      const response = await axios.post("https://arbeitolic-backend.vercel.app/user/login", {
     email, password});
 
       const token = response.data.token

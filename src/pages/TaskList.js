@@ -24,14 +24,14 @@ const TaskList = () => {
     headers: { Authorization: `Bearer ${token}` },
   };
 
-
+  const Prefix_url = "https://arbeitolic-backend.vercel.app"
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [teamsRes, ownersRes, projectsRes] = await Promise.all([
-          axios.get("http://localhost:3000/teams", axiosConfig),
-          axios.get("http://localhost:3000/users", axiosConfig),
-          axios.get("http://localhost:3000/projects", axiosConfig),
+          axios.get(`${Prefix_url}/teams`, axiosConfig),
+          axios.get(`${Prefix_url}/users`, axiosConfig),
+          axios.get(`${Prefix_url}/projects`, axiosConfig),
         ]);
 
         setTeams(teamsRes.data.teams);
@@ -50,7 +50,7 @@ const TaskList = () => {
   const fetchTasks = async () => {
     const query = new URLSearchParams(filters).toString();
     try {
-      const response = await axios.get(`http://localhost:3000/tasks?${query}`, axiosConfig);
+      const response = await axios.get(`${Prefix_url}/tasks?${query}`, axiosConfig);
       setTasks(response.data.tasks);
     } catch (error) {
       console.error("Failed to fetch tasks", error.message);

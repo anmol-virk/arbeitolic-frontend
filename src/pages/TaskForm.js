@@ -32,13 +32,14 @@ const TaskForm = () => {
   const axiosConfig = {
     headers: { Authorization: `Bearer ${token}` },
   };
+  const Prefix_url = "https://arbeitolic-backend.vercel.app"
 
   useEffect(() => {
     const fetchFormResources = async () => {
       try {
-        const projectsResponse = await axios.get("http://localhost:3000/projects", axiosConfig);
-        const teamsResponse = await axios.get("http://localhost:3000/teams", axiosConfig);
-        const usersResponse = await axios.get("http://localhost:3000/users", axiosConfig);
+        const projectsResponse = await axios.get(`${Prefix_url}/projects`, axiosConfig);
+        const teamsResponse = await axios.get(`${Prefix_url}/teams`, axiosConfig);
+        const usersResponse = await axios.get(`${Prefix_url}/users`, axiosConfig);
 
         setProjects(projectsResponse.data.projects);
         setTeams(teamsResponse.data.teams);
@@ -70,7 +71,7 @@ const TaskForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/tasks", formData, axiosConfig);
+      const response = await axios.post(`${Prefix_url}/tasks`, formData, axiosConfig);
       setSuccessMessage("Task created successfully!")
       setFormData({
         name: "",

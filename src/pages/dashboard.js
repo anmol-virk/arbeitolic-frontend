@@ -19,6 +19,7 @@ const Dashboard = () => {
     const axiosConfig = {
       headers: { Authorization: `Bearer ${token}` },
     };
+    const Prefix_url = "https://arbeitolic-backend.vercel.app"
 
     useEffect(() => {
       setFilteredTasks(tasks); 
@@ -26,7 +27,7 @@ const Dashboard = () => {
     useEffect(() => {
       const fetchProjects = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/projects", axiosConfig); 
+          const response = await axios.get(`${Prefix_url}/projects`, axiosConfig); 
           setProjects(response.data.projects);
           setLoading(false);
         } catch (err) {
@@ -37,7 +38,7 @@ const Dashboard = () => {
 
      const fetchTasks = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/tasks", axiosConfig);
+          const response = await axios.get(`${Prefix_url}/tasks`, axiosConfig);
           setTasks(response.data.tasks);
           setLoadingTasks(false);
         } catch (err) {
@@ -61,7 +62,7 @@ const Dashboard = () => {
   const handleAddProject = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post("http://localhost:3000/projects", newProject, axiosConfig);
+        const response = await axios.post(`${Prefix_url}/projects`, newProject, axiosConfig);
         setProjects([...projects, response.data.project]);
         setNewProject({ name: "", description: "", });
         setShowProjectForm(false);

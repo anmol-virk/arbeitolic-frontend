@@ -17,14 +17,15 @@ const TaskDetails = () => {
   const axiosConfig = {
     headers: { Authorization: `Bearer ${token}` },
   };
+  const Prefix_url = "https://arbeitolic-backend.vercel.app"
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [taskRes, teamsRes, ownersRes] = await Promise.all([
-          axios.get(`http://localhost:3000/tasks/${id}`, axiosConfig),
-          axios.get("http://localhost:3000/teams", axiosConfig),
-          axios.get("http://localhost:3000/users", axiosConfig),
+          axios.get(`${Prefix_url}/tasks/${id}`, axiosConfig),
+          axios.get(`${Prefix_url}/teams`, axiosConfig),
+          axios.get(`${Prefix_url}/users`, axiosConfig),
         ]);
 
         const taskData = taskRes.data.task;
@@ -77,7 +78,7 @@ const TaskDetails = () => {
       };
 
       const response = await axios.put(
-        `http://localhost:3000/tasks/${id}`,
+        `${Prefix_url}/tasks/${id}`,
         updatedData,
         axiosConfig
       );

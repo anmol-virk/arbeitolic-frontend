@@ -13,7 +13,7 @@ const navigate = useNavigate()
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/user/signup", {
+      const response = await axios.post("https://arbeitolic-backend.vercel.app/user/signup", {
          name, email, password
       });
         setMessage("Account created successfully!", response);

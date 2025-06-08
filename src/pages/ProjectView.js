@@ -38,13 +38,13 @@ const ProjectView = () => {
     setSelectedProject(projectId)
     updateURLParams({project: projectId})
   }
-
+ const Prefix_url = "https://arbeitolic-backend.vercel.app"
   const fetchData = async () => {
     try {
       const [projectRes, taskRes, ownerRes] = await Promise.all([
-        axios.get("http://localhost:3000/projects", axiosConfig),
-        axios.get("http://localhost:3000/tasks", axiosConfig),
-        axios.get("http://localhost:3000/users", axiosConfig),
+        axios.get(`${Prefix_url}/projects`, axiosConfig),
+        axios.get(`${Prefix_url}/tasks`, axiosConfig),
+        axios.get(`${Prefix_url}/users`, axiosConfig),
       ]);
 
       setProjects(projectRes.data.projects);
@@ -78,7 +78,7 @@ const ProjectView = () => {
   const handleAddProject = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post("http://localhost:3000/projects", newProject, axiosConfig);
+        const response = await axios.post(`${Prefix_url}/projects`, newProject, axiosConfig);
         setProjects([...projects, response.data.project]);
         setNewProject({ name: "", description: "", });
         setShowProjectForm(false);

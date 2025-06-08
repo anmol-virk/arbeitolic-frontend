@@ -30,12 +30,13 @@ const TeamView = () => {
     applyFiltersFromURL();
   }, [searchParams, tasks]);
 
+  const Prefix_url = "https://arbeitolic-backend.vercel.app"
   const fetchData = async () => {
     try {
       const [teamRes, taskRes, ownerRes] = await Promise.all([
-        axios.get("http://localhost:3000/teams", axiosConfig),
-        axios.get("http://localhost:3000/tasks", axiosConfig),
-        axios.get("http://localhost:3000/users", axiosConfig),
+        axios.get(`${Prefix_url}/teams`, axiosConfig),
+        axios.get(`${Prefix_url}/tasks`, axiosConfig),
+        axios.get(`${Prefix_url}/users`, axiosConfig),
       ]);
 
       setTeams(teamRes.data.teams);
@@ -76,7 +77,7 @@ const TeamView = () => {
   const handleAddTeam = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post("http://localhost:3000/teams", newTeam, axiosConfig);
+        const response = await axios.post(`${Prefix_url}/teams`, newTeam, axiosConfig);
         setTeams([...teams, response.data.team]);
         setNewTeam({ name: "", description: "", });
         setShowTeamForm(false);
