@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Zeitkammerblick (Photo management app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack task and project management platform using React, Express, MongoDB, and JWT auth, featuring advanced task filtering, project grouping and visual reporting with Chart.js.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Login
 
-### `npm start`
+**Guest**
+Username: `tony@email.com`
+Password: `tony123`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
+## Quick Start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+git clone https://github.com/anmol-virk/arbeitolic-frontend.git
+cd <arbeitolic-frontend>
+npm install
+npm start
+```
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
+- React JS
+- Node JS
+- Express
+- MongoDB
+- JWT
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
+**Landing Page**
+- List of all the Projects and their basic details with a sidebar to navigate further.
+- Buttons to add new Task and Project.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Task Details**
+- View all the details of a Task(Status, Tags, Time to Complete, Team, Owners etc.)
+- Edit Task details Button.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Authentication**
+- User SignIn through JWT auth.
+- Routes are protected with JWT.
 
-### `npm run eject`
+**Task List**
+- View all the task.
+- Filter them accordingly (filter by Owner, Team, Tags, Status, Project).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Project View**
+- Select any Project to see Tasks related to that Project.
+- Filter them by Tag and Owner
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Team View**
+- Select any Team to see Tasks related to that Team.
+- Filter them by Tag and Owner and Status.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Reports**
+- See visual reporting of Total work-done in last week, total days of work-pending and tasks closed by Team, Owner or Project.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## API Reference
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### ***GET /api/tasks***
+List of all Tasks created by User.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### ***POST /api/tasks***
+Create a new Task.
 
-### Code Splitting
+### ***GET /api/tasks/:id***
+Get Task by ID and see their full details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### ***PUT /api/tasks/:id***
+Edit and Update a Task by its ID.
 
-### Analyzing the Bundle Size
+### ***GET /api/report/last-week***
+To See visual reporting of Total work-done in last week
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### ***GET /api/report/pending***
+To See visual reporting of total pending days for all tasks
 
-### Making a Progressive Web App
+### ***GET /api/report/closed-tasks***
+To See visual reporting of tasks closed grouped by team, owner, or project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For bugs or feature request, please reach out to anmolthisside@gmail.com
