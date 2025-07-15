@@ -1,4 +1,4 @@
-# Zeitkammerblick (Photo management app)
+# Arbeitolic (Task management Platform)
 
 A full-stack task and project management platform using React, Express, MongoDB, and JWT auth, featuring advanced task filtering, project grouping and visual reporting with Chart.js.
 
